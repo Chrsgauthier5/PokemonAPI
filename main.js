@@ -42,7 +42,7 @@ $(document).ready(function () {
         inputSearch = this.textContent;
         console.log(inputSearch);
         var apiKey = "Hv8i0h2SNO7gK9IEt8XYsVG9SWZj7Zdv";
-        var xhr = "https://api.giphy.com/v1/gifs/search?q="+ inputSearch +"&api_key=" + apiKey + "&limit=10"
+        var xhr = "https://api.giphy.com/v1/gifs/search?q="+ inputSearch +"&api_key=" + apiKey + "&limit=12"
         $.ajax({
             url: xhr,
             method: "GET"
