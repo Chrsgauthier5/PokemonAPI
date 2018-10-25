@@ -1,7 +1,21 @@
-#pokebuttons{
+.btn-dark{
     padding:5px;
     margin: 5px;
 }
-h1{
+h2{
+    margin-bottom: 20px;
+    padding: 25px;
+    text-align: center;
+    display: inline-block;
+    border: 3px red solid;
+}
+#starterBG{
+    background-image: url(starter.jpg);
+    padding: 40px;
+}
+.container {
+    text-align: center;
+}
+#searchText{
     text-align: center;
 }
