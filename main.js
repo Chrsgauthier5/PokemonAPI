@@ -8,6 +8,8 @@ $(document).ready(function () {
         $("#buttons").append($("<button>", { id: "pokebuttons", class: "btn btn-dark" }).text(topics[i].toLowerCase()))
     }
 
+    
+
     $("#searchGifs").click(function () {
         var input = $("#searchText").val().toLowerCase();
         console.log(input)
@@ -17,7 +19,6 @@ $(document).ready(function () {
         }
 
         if (topics.indexOf(input) !==-1){
-
             alert ("There's already a GIPHY button for " + input);
             return
         }
@@ -36,28 +37,36 @@ $(document).ready(function () {
 
 
 
-    $(document).on("click",".btn-dark", function(){
+    $(document).on("click",".btn-dark", function(){   
         $("#gifsDisplay").empty()
         console.log("hi");
         inputSearch = this.textContent;
         console.log(inputSearch);
-        var apiKey = "Hv8i0h2SNO7gK9IEt8XYsVG9SWZj7Zdv";
-        var xhr = "https://api.giphy.com/v1/gifs/search?q="+ inputSearch +"&api_key=" + apiKey + "&limit=12"
+        apiKey = "Hv8i0h2SNO7gK9IEt8XYsVG9SWZj7Zdv";
+        xhr = "https://api.giphy.com/v1/gifs/search?q="+ inputSearch +"&api_key=" + apiKey + "&limit=12"
         $.ajax({
             url: xhr,
             method: "GET"
         }).then(function(response){
-            console.log("is this getting called")
-            
-            var gifs = response.data
+            console.log(response);
+            gifs = response.data
 
-            for (i in gifs)
-            {$("#gifsDisplay").append("<img src='" + gifs[i].images.original.url + "' style='height:250px; width: 250px;'>")
-            }           
+            for (i in gifs){
+            $("#gifsDisplay").append("<img class='gif' src='" + gifs[i].images.original.url + "' style='height:250px; width: 250px; margin:15px;'>"
+             + "Rating: " + gifs[i].rating);}      
         });
-
-    })
-
+                      
+    }); //end of ajax call
+//     $(document).on("click", ".gif", function(){
+//         $.ajax({
+//             url: xhr,
+//             method: "GET"
+//         }).then(function(response){
+            
+//             console.log(this);
+//             $(this).attr("url", gifs[i].images.original.url);
+//     });
+// });
 
 
 

@@ -19,3 +19,12 @@ h2{
 #searchText{
     text-align: center;
 }
+#buttons{
+    background-color: lightseagreen;
+}
+img{
+    border-radius: 50%;
+}
+p{
+    display: inline;
+}
